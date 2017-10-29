@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "webpack": "./node_modules/.bin/webpack -p",
-    "webpack-dev": "./node_modules/.bin/webpack --watch"
+    "webpack-dev": "./node_modules/.bin/webpack --watch",
+    "postinstall": "npm run webpack"
   },
   "author": "Pryakhin Vladimir",
   "license": "MIT",
