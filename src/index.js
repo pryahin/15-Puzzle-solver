@@ -1,5 +1,5 @@
 const args = process.argv;
 
-console.log(args.forEach(function(arg) {
+console.log(args.forEach(arg => {
     console.log(arg);
 }));
