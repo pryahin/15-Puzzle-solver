@@ -4,8 +4,13 @@
   "description": "Homework on algorithms and data structures",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "webpack": "./node_modules/.bin/webpack -p",
+    "webpack-dev": "./node_modules/.bin/webpack --watch"
   },
   "author": "Pryakhin Vladimir",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  }
 }
