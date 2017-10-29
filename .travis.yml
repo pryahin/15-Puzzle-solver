@@ -8,4 +8,5 @@ branches:
   - develop
 
 script:
+  - npm run eslint
   - npm start
