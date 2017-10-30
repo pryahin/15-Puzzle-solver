@@ -31,4 +31,12 @@ export default class Reader {
 
         return result;
     }
-};
+
+    get input() {
+        return this._input;
+    }
+
+    get output() {
+        return this._output;
+    }
+}
