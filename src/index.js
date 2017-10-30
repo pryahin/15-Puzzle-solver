@@ -1,5 +1,5 @@
-const args = process.argv;
+import Reader from './modules/Reader';
 
-console.log(args.forEach(arg => {
-    console.log(arg);
-}));
+const reader = new Reader();
+
+reader.read();
