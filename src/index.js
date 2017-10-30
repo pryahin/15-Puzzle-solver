@@ -8,4 +8,11 @@ reader.read();
 
 Validator(reader.input, error);
 
-console.log(error);
+if (error.message !== undefined) {
+    console.log(error);
+    process.exit();
+}
+
+const input = JSON.parse(reader.input);
+
+console.log(input);
