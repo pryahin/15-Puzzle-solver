@@ -15,11 +15,11 @@ export default class Reader {
     }
 
     static readFromFile(file) {
-        return fs.readFileSync(file, 'utf8');
+        return fs.readFileSync(file, 'utf8').toString();
     }
 
     static readFromStdin() {
-        return fs.readFileSync('/dev/stdin').toString();
+        return fs.readFileSync('/dev/stdin', 'utf8').toString();
     }
 
     get input() {
