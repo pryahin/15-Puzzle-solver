@@ -1,5 +1,6 @@
 import JsonValidation from './JsonValidation/JsonValidation';
 import ArrayValidation from './ArrayValidation/ArrayValidation';
+import ContentValidation from './ContentValidation/ContentValidation';
 
 const Validation = (data, error) => {
     if (error.message !== undefined) {
@@ -11,7 +12,11 @@ const Validation = (data, error) => {
     }
 
     const obj = JSON.parse(data);
-    ArrayValidation(obj, error)
+    if (!ArrayValidation(obj, error)) {
+        return;
+    }
+
+    ContentValidation(obj, error);
 };
 
 export default Validation;
