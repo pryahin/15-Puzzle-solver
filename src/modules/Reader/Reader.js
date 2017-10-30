@@ -8,7 +8,6 @@ export default class Reader {
 
     read() {
         const args = process.argv;
-        console.log(args);
 
         this._input = args[2] !== undefined ? Reader.readFromFile(args[2]) : Reader.readFromStdin();
         this._output = args[3] !== undefined ? Reader.readFromFile(args[3]) : null;
