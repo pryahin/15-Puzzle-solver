@@ -9,4 +9,3 @@ branches:
 
 script:
   - npm run eslint
-  - npm start
