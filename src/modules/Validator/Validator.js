@@ -1,9 +1,11 @@
 import JsonValidation from './JsonValidation/JsonValidation';
 
 const Validation = (data, error) => {
-    JsonValidation(data, error);
+    if (error.message !== undefined) {
+        return;
+    }
 
-    return error;
+    JsonValidation(data, error);
 };
 
 export default Validation;

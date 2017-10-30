@@ -1,9 +1,10 @@
 const fs = require('fs');
 
 export default class Reader {
-    constructor() {
+    constructor(error) {
         this._input = null;
         this._output = null;
+        this.error = error;
     }
 
     read() {
@@ -13,7 +14,7 @@ export default class Reader {
             this._input = Reader.read(args[2]);
             this._output = args[3] !== undefined ? Reader.read(args[3]) : null;
         } catch (e) {
-            console.log('Файл не найден');
+            this.error.message = 'Файл не найден';
         }
     }
 

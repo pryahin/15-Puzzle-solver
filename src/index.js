@@ -1,8 +1,8 @@
 import Reader from './modules/Reader/Reader';
 import Validator from './modules/Validator/Validator';
 
-const reader = new Reader();
-let error = {};
+const error = {};
+const reader = new Reader(error);
 
 reader.read();
 
