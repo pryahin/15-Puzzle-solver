@@ -1,11 +1,16 @@
 module.exports = {
+    target: 'node',
+
     entry: {
-        main: "./src/index.js"
+        main: [
+            'babel-polyfill',
+            './src/index.js'
+        ]
     },
 
     output: {
         path: __dirname + '/src/built',
-        filename: "[name].js"
+        filename: '[name].js'
     },
 
     resolve: {

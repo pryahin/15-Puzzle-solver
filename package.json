@@ -4,7 +4,7 @@
   "description": "Homework on algorithms and data structures",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/built/main.js",
     "webpack": "./node_modules/.bin/webpack -p",
     "webpack-dev": "./node_modules/.bin/webpack --watch",
     "eslint": "./node_modules/.bin/eslint ./src/",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
