@@ -1,7 +1,11 @@
-import Reader from './modules/Reader';
+import Reader from './modules/Reader/Reader';
+import Validator from './modules/Validator/Validator';
 
 const reader = new Reader();
+let error = {};
 
 reader.read();
 
-console.log(reader.input);
+Validator(reader.input, error);
+
+console.log(error);
