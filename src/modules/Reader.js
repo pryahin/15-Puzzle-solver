@@ -19,17 +19,7 @@ export default class Reader {
     }
 
     static readFromStdin() {
-        let result = '';
-        process.stdin.setEncoding('utf8');
-
-        process.stdin.on('readable', () => {
-            const chunk = process.stdin.read();
-            if (chunk !== null) {
-                result += chunk;
-            }
-        });
-
-        return result;
+        return fs.readFileSync('/dev/stdin').toString();
     }
 
     get input() {
