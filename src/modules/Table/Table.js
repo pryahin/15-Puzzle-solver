@@ -18,12 +18,21 @@ export default class Table {
         });
     }
 
-    moveZero({x: _x = this.zero.x, y: _y = this.zero.y}) {
-        if (_x < this.dimension && _y < this.dimension && _x > -1 && _y > -1) {
+    moveZero({x: x = this.zero.x, y: y = this.zero.y}) {
+        if (x < this.dimension && y < this.dimension && x > -1 && y > -1) {
             const copyMatrix = this.matrix.map(arr => arr.slice());
-            [copyMatrix[this.zero.y][this.zero.x], copyMatrix[_y][_x]] = [copyMatrix[_y][_x], copyMatrix[this.zero.y][this.zero.x]];
+            ([copyMatrix[this.zero.y][this.zero.x], copyMatrix[y][x]] = [copyMatrix[y][x], copyMatrix[this.zero.y][this.zero.x]]);
             return new Table(copyMatrix);
         }
         return null;
+    }
+
+    nextStages() {
+        const result = [];
+        result.push(this.moveZero({x: this.zero.x - 1}));
+        result.push(this.moveZero({x: this.zero.x + 1}));
+        result.push(this.moveZero({y: this.zero.y - 1}));
+        result.push(this.moveZero({y: this.zero.y + 1}));
+        return result.filter(el => el !== null);
     }
 }
