@@ -35,4 +35,26 @@ export default class Table {
         result.push(this.moveZero({y: this.zero.y + 1}));
         return result.filter(el => el !== null);
     }
+
+    print() {
+        const result = [];
+        this.matrix.forEach(line => {
+            result.push(line.join('\t'));
+        });
+
+        return result.join('\n');
+    }
+
+    printPretty() {
+        // const paddingLength = (this.dimension ** 2).toString().length + 1;
+        const paddingLength = Math.floor(Math.log10((this.dimension ** 2))) + 2;
+        const result = [];
+        this.matrix.forEach(line => {
+            result.push(line.reduce((acc, num) => {
+                return acc + num.toString().padStart(paddingLength);
+            }, ''));
+        });
+
+        return result.join('\n');
+    }
 }
