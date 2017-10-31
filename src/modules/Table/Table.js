@@ -20,7 +20,7 @@ export default class Table {
 
     moveZero({x: _x = this.zero.x, y: _y = this.zero.y}) {
         if (_x < this.dimension && _y < this.dimension && _x > -1 && _y > -1) {
-            const copyMatrix = this.matrix.slice();
+            const copyMatrix = this.matrix.map(arr => arr.slice());
             [copyMatrix[this.zero.y][this.zero.x], copyMatrix[_y][_x]] = [copyMatrix[_y][_x], copyMatrix[this.zero.y][this.zero.x]];
             return new Table(copyMatrix);
         }
