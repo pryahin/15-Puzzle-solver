@@ -33,6 +33,7 @@ module.exports = {
         "quote-props": 0,
         "arrow-body-style": 0,
         "padded-blocks": 0,
-        "operator-assignment": 0
+        "operator-assignment": 0,
+        "max-len": ["error", 150, 4]
     }
 };
