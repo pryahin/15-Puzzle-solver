@@ -1,4 +1,4 @@
-class Table {
+export default class Table {
     constructor(matrix) {
         this.matrix = matrix;
         this.dimension = matrix.length;
@@ -16,5 +16,14 @@ class Table {
                 }
             });
         });
+    }
+
+    moveZero({x: _x = this.zero.x, y: _y = this.zero.y}) {
+        if (_x < this.dimension && _y < this.dimension && _x > -1 && _y > -1) {
+            const copyMatrix = this.matrix.slice();
+            [copyMatrix[this.zero.y][this.zero.x], copyMatrix[_y][_x]] = [copyMatrix[_y][_x], copyMatrix[this.zero.y][this.zero.x]];
+            return new Table(copyMatrix);
+        }
+        return null;
     }
 }
