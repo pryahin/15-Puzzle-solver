@@ -1,5 +1,6 @@
 export default class Table {
-    constructor(matrix) {
+    constructor(matrix, parent = null) {
+        this.parent = parent;
         this.matrix = matrix;
         this.dimension = matrix.length;
         this.h = 0;
@@ -16,13 +17,16 @@ export default class Table {
                 }
             });
         });
+
+        this.g = parent ? parent.g + 1 : 0;
+        this.f = this.g + this.h;
     }
 
     moveZero({x: x = this.zero.x, y: y = this.zero.y}) {
         if (x < this.dimension && y < this.dimension && x > -1 && y > -1) {
             const copyMatrix = this.matrix.map(arr => arr.slice());
             ([copyMatrix[this.zero.y][this.zero.x], copyMatrix[y][x]] = [copyMatrix[y][x], copyMatrix[this.zero.y][this.zero.x]]);
-            return new Table(copyMatrix);
+            return new Table(copyMatrix, this);
         }
         return null;
     }
@@ -34,6 +38,14 @@ export default class Table {
         result.push(this.moveZero({y: this.zero.y - 1}));
         result.push(this.moveZero({y: this.zero.y + 1}));
         return result.filter(el => el !== null);
+    }
+
+    isSolve() {
+        return this.h === 0;
+    }
+
+    getUnique() {
+        return this.matrix.toString();
     }
 
     print() {
