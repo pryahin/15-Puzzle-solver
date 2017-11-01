@@ -21,7 +21,18 @@ export default class Solver {
     }
 
     isSolveable() {
-        return true;
+        const curNode = this.getMin();
+        const array = curNode.getUnique().split(',');
+
+        let n = curNode.zero.y + 1;
+        array.forEach((value, index) => {
+            for (let i = index + 1; i < array.length; i++) {
+                if (array[i] < i) {
+                    n++;
+                }
+            }
+        });
+        return n % 2 === 0;
     }
 
     _getChain(solution) {
@@ -35,7 +46,7 @@ export default class Solver {
 
     search() {
         if (!this.isSolveable()) {
-            return false;
+            return null;
         }
 
         while (this.opened.size !== 0) {
