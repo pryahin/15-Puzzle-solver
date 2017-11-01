@@ -7,9 +7,17 @@ class Solver {
     }
 
     getMin() {
-        return [...this.opened.keys()].reduce((curMin, key) => {
-            return Math.min(curMin, this.opened.get(key).f);
-        }, +Infinity);
+        return this.opened.get([...this.opened.keys()].reduce((curMin, key) => {
+            const f = this.opened.get(key).f;
+            if (f < curMin.min) {
+                curMin.min = f;
+                curMin.key = key;
+            }
+            return curMin;
+        }, {
+            min: +Infinity,
+            key: null
+        }).key);
     }
 
     isSolveable() {
