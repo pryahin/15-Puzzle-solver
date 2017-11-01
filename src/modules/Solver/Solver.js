@@ -2,6 +2,7 @@ export default class Solver {
     constructor(table) {
         this.closed = new Map();
         this.opened = new Map();
+        this.length = table.matrix.length;
 
         this.opened.set(table.getUnique(), table);
     }
@@ -47,8 +48,10 @@ export default class Solver {
     }
 
     search() {
-        if (!this.isSolveable()) {
-            return null;
+        if (this.length === 4) {
+            if (!this.isSolveable()) {
+                return null;
+            }
         }
 
         while (this.opened.size !== 0) {
