@@ -1,4 +1,4 @@
-class Solver {
+export default class Solver {
     constructor(table) {
         this.closed = new Map();
         this.opened = new Map();
@@ -27,13 +27,13 @@ class Solver {
     _getChain(solution) {
         const result = [];
         while (solution) {
-            result.push(solution.matrix);
+            result.push(solution);
             solution = solution.parent;
         }
         return result.reverse();
     }
 
-    start() {
+    search() {
         if (!this.isSolveable()) {
             return false;
         }
@@ -47,6 +47,23 @@ class Solver {
 
             this.opened.delete(curNode.getUnique());
             this.closed.set(curNode.getUnique(), curNode);
+
+            const nextStages = curNode.nextStages();
+            nextStages.forEach(table => {
+                if (this.closed.has(table.getUnique())) {
+                    return;
+                }
+                const repeat = this.opened.get(table.getUnique());
+                if (!repeat) {
+                    this.opened.set(table.getUnique(), table);
+                } else {
+                    if (table.g < repeat.g) {
+                        this.opened.set(table.getUnique(), table);
+                    }
+                }
+            });
         }
+
+        return null;
     }
 }
