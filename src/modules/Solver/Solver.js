@@ -22,13 +22,15 @@ export default class Solver {
 
     isSolveable() {
         const curNode = this.getMin();
-        const array = curNode.getUnique().split(',');
+        const array = curNode.getUnique().split(',').map(val => +val);
 
         let n = curNode.zero.y + 1;
         array.forEach((value, index) => {
-            for (let i = index + 1; i < array.length; i++) {
-                if (array[i] < i) {
-                    n++;
+            if (value !== 0) {
+                for (let i = index + 1; i < array.length; i++) {
+                    if (array[i] < value && array[i] !== 0) {
+                        n++;
+                    }
                 }
             }
         });
