@@ -9,7 +9,8 @@
     "webpack-dev": "./node_modules/.bin/webpack --watch",
     "eslint": "./node_modules/.bin/eslint ./src/",
     "eslint-fix": "./node_modules/.bin/eslint --fix ./src/",
-    "postinstall": "npm run webpack"
+    "postinstall": "npm run webpack",
+    "test": "node src/built/test.js"
   },
   "author": "Pryakhin Vladimir",
   "license": "MIT",

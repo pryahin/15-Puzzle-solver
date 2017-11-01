@@ -5,6 +5,10 @@ module.exports = {
         main: [
             'babel-polyfill',
             './src/index.js'
+        ],
+        test: [
+            'babel-polyfill',
+            './src/test.js'
         ]
     },
 
