@@ -27,7 +27,7 @@ export default class Solver {
     _getChain(solution) {
         const result = [];
         while (solution) {
-            result.push(solution);
+            result.push(solution.printPretty());
             solution = solution.parent;
         }
         return result.reverse();
