@@ -5,6 +5,7 @@ export default class Table {
         this.dimension = matrix.length;
         this.h = 0;
         this.zero = {x: 0, y: 0};
+        this.unique = this.matrix.toString();
 
         this.matrix.forEach((line, yIndex) => {
             line.forEach((element, xIndex) => {
@@ -47,7 +48,7 @@ export default class Table {
     }
 
     getUnique() {
-        return this.matrix.toString();
+        return this.unique;
     }
 
     print() {
