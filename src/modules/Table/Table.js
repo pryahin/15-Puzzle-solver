@@ -12,7 +12,9 @@ export default class Table {
                     if (element === 0) {
                         this.zero = {x: xIndex, y: yIndex};
                     } else {
-                        this.h++;
+                        const Y = Math.floor((element - 1) / this.dimension);
+                        const X = element - 1 - (Y * this.dimension);
+                        this.h += Math.abs(yIndex - Y) + Math.abs(xIndex - X);
                     }
                 }
             });
@@ -33,10 +35,10 @@ export default class Table {
 
     nextStages() {
         const result = [];
-        result.push(this.moveZero({x: this.zero.x - 1}));
         result.push(this.moveZero({x: this.zero.x + 1}));
-        result.push(this.moveZero({y: this.zero.y - 1}));
         result.push(this.moveZero({y: this.zero.y + 1}));
+        result.push(this.moveZero({x: this.zero.x - 1}));
+        result.push(this.moveZero({y: this.zero.y - 1}));
         return result.filter(el => el !== null);
     }
 
