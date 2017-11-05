@@ -40,7 +40,7 @@ A* пошагово просматривает все пути, ведущие �
 
 **Пример работы алгоритма:**
 
-![astar](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
+![astar](docs/images/astar.gif)
 
 <a name="idastar"></a>
 ### Алгоритм IDА*
@@ -58,7 +58,7 @@ A* пошагово просматривает все пути, ведущие �
 
 **Пример работы алгоритма:**
 
-![bfs](http://nio01.altervista.org/blog/wp-content/uploads/2015/04/dfs.gif)
+![bfs](docs/images/bfs.gif)
 
 <a name="dataformat"></a>
 ## Формат входных/выходных данных
