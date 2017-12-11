@@ -13,7 +13,7 @@ reader.read();
 Validator(reader.input, error);
 
 if (error.message !== undefined) {
-    console.log(error);
+    console.log(JSON.stringify(error));
     process.exit();
 }
 
