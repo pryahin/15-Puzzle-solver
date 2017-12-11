@@ -10,6 +10,7 @@
     "eslint": "./node_modules/.bin/eslint ./src/",
     "eslint-fix": "./node_modules/.bin/eslint --fix ./src/",
     "postinstall": "npm run webpack",
+    "tests": "node src/built/tests.js",
     "test": "node src/built/test.js"
   },
   "author": "Pryakhin Vladimir",

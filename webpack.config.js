@@ -9,6 +9,10 @@ module.exports = {
         test: [
             'babel-polyfill',
             './src/test.js'
+        ],
+        tests: [
+            'babel-polyfill',
+            './src/tests.js'
         ]
     },
 
