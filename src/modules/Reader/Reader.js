@@ -1,6 +1,6 @@
-const fs = require('fs');
-
 import {FILE_NOT_FOUND} from '../../Constants/Messages';
+
+const fs = require('fs');
 
 export default class Reader {
     constructor(error) {
