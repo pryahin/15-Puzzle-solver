@@ -5,7 +5,7 @@ import Reader from './modules/Reader/Reader';
 
 import {NO_SOLUTION} from './Constants/Messages';
 
-for (let i = 1; i < 10; i++) {
+for (let i = 1; i < 12; i++) {
     const error = {};
     const reader = new Reader(error);
 
