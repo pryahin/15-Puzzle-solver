@@ -9,9 +9,7 @@ export default class Reader {
         this.error = error;
     }
 
-    read() {
-        const args = process.argv;
-
+    read(args = process.argv) {
         try {
             this._input = Reader.read(args[2]);
             this._output = args[3] !== undefined ? Reader.read(args[3]) : null;
