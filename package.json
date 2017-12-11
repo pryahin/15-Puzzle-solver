@@ -1,0 +1,28 @@
+{
+  "name": "15-Puzzle-solver",
+  "version": "1.0.0",
+  "description": "Homework on algorithms and data structures",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/built/main.js",
+    "webpack": "./node_modules/.bin/webpack -p",
+    "webpack-dev": "./node_modules/.bin/webpack --watch",
+    "eslint": "./node_modules/.bin/eslint ./src/",
+    "eslint-fix": "./node_modules/.bin/eslint --fix ./src/",
+    "postinstall": "npm run webpack",
+    "tests": "node src/built/tests.js",
+    "test": "node src/built/test.js"
+  },
+  "author": "Pryakhin Vladimir",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "webpack": "^3.8.1"
+  }
+}
