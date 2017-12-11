@@ -1,10 +1,19 @@
+import {MATRIX_ERROR, MATRIX_MIN_SIZE, INVALID_CELL} from '../../../Constants/Messages';
+
 export default function ArrayValidation(data, error) {
     if (!Array.isArray(data)) {
-        error.message = 'Входные данные должны быть матрицей(массивом массивов)';
+        error.message = MATRIX_ERROR;
         return false;
     }
+    if (data.length === 0) {
+        error.message = MATRIX_ERROR;
+        return false;
+    }
+    if (data.length === 1) {
+        error.message = MATRIX_MIN_SIZE;
+    }
     if (!data.every(Array.isArray)) {
-        error.message = 'Входные данные должны быть матрицей(массивом массивов)';
+        error.message = MATRIX_ERROR;
         return false;
     }
 
@@ -12,7 +21,7 @@ export default function ArrayValidation(data, error) {
         return valid * element.every(Number.isInteger);
     }, true);
     if (!valid) {
-        error.message = 'Массивы должны состоять только из цифр!';
+        error.message = INVALID_CELL;
         return false;
     }
     return true;

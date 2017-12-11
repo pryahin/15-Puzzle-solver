@@ -1,8 +1,10 @@
+import {MATRIX_SIZE, INCORRECT_NUMBER, REPEAT_NUMBER} from '../../../Constants/Messages';
+
 export default function ContentValidation(arr, error) {
     const COUNT = arr.length ** 2;
 
     if (!arr.every(element => element.length === arr.length)) {
-        error.message = 'Матрица должны быть размером NxN';
+        error.message = MATRIX_SIZE;
         return false;
     }
 
@@ -16,12 +18,12 @@ export default function ContentValidation(arr, error) {
     }, true);
 
     if (!valid) {
-        error.message = 'Некорректные числа';
+        error.message = INCORRECT_NUMBER;
         return false;
     }
 
     if (set.size !== COUNT) {
-        error.message = 'Не должно быть повторений!';
+        error.message = REPEAT_NUMBER;
         return false;
     }
 

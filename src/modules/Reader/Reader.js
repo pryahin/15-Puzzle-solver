@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+import {FILE_NOT_FOUND} from '../../Constants/Messages';
+
 export default class Reader {
     constructor(error) {
         this._input = null;
@@ -14,7 +16,7 @@ export default class Reader {
             this._input = Reader.read(args[2]);
             this._output = args[3] !== undefined ? Reader.read(args[3]) : null;
         } catch (e) {
-            this.error.message = 'Файл не найден';
+            this.error.message = FILE_NOT_FOUND;
         }
     }
 
