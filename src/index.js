@@ -3,7 +3,7 @@ import Validator from './modules/Validator/Validator';
 import Table from './modules/Table/Table';
 import Solver from './modules/Solver/Solver';
 
-import {START, NO_SOLUTION} from './Constants/Messages';
+import {START, NO_SOLUTION, SEPARATOR} from './Constants/Messages';
 
 const short = process.env.npm_config_short || false;
 
@@ -29,5 +29,5 @@ const solution = solver.search(short);
 if (solution === null) {
     console.log(NO_SOLUTION);
 } else {
-    console.log(solution.join(short ? ',' : '\n\n'));
+    console.log(solution.join(short ? SEPARATOR : '\n\n'));
 }

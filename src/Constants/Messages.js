@@ -10,3 +10,4 @@ export const NO_SOLUTION = 'Нет решения';
 export const START = 'start...';
 
 export const FILE_NOT_FOUND = 'Файл не найден';
+export const SEPARATOR = ',';
