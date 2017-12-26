@@ -1,3 +1,5 @@
+import PriorityQueue from './../../modules/PriorityQueue/PriorityQueue';
+
 export default class Solver {
     constructor(table) {
         this.closed = new Map();
@@ -38,16 +40,16 @@ export default class Solver {
         return n % 2 === 0;
     }
 
-    _getChain(solution) {
+    _getChain(solution, short = false) {
         const result = [];
         while (solution) {
-            result.push(solution.printPretty());
+            result.push(short ? (solution.zero.y * solution.dimension) + solution.zero.x + 1 : solution.printPretty());
             solution = solution.parent;
         }
         return result.reverse();
     }
 
-    search() {
+    search(short = false) {
         if (this.length === 4) {
             if (!this.isSolveable()) {
                 return null;
@@ -56,9 +58,10 @@ export default class Solver {
 
         while (this.opened.size !== 0) {
             const curNode = this.getMin();
+            // console.log(`opened: ${this.opened.size} closed: ${this.closed.size} table: ${curNode.getUnique()}`);
 
             if (curNode.isSolve()) {
-                return this._getChain(curNode);
+                return this._getChain(curNode, short);
             }
 
             this.opened.delete(curNode.getUnique());
