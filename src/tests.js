@@ -3,9 +3,9 @@ import Validator from './modules/Validator/Validator';
 import Table from './modules/Table/Table';
 import Reader from './modules/Reader/Reader';
 
-import {NO_SOLUTION} from './Constants/Messages';
+import {NO_SOLUTION, OK, ERROR} from './Constants/Messages';
 
-for (let i = 1; i < 12; i++) {
+for (let i = 1; i < 16; i++) {
     const error = {};
     const reader = new Reader(error);
 
@@ -13,23 +13,17 @@ for (let i = 1; i < 12; i++) {
 
     Validator(reader.input, error);
     if (error.message !== undefined) {
-        if (JSON.stringify(error) === reader.output) {
-            console.log(`Test #${i}: OK!`);
-        } else {
-            console.log(`Test #${i}: Error`);
-        }
+        console.log(`Test #${i}: ${JSON.stringify(error) === reader.output ? OK : ERROR}`);
     } else {
         const input = JSON.parse(reader.input);
 
         const table = new Table(input);
         const solver = new Solver(table);
 
-        const solution = solver.search() === null ? NO_SOLUTION : 'OK';
+        process.stdout.write(`Test #${i}: `);
 
-        if (solution === reader.output) {
-            console.log(`Test #${i}: OK!`);
-        } else {
-            console.log(`Test #${i}: Error`);
-        }
+        const solution = solver.search() === null ? NO_SOLUTION : OK;
+
+        console.log(solution === reader.output ? OK : ERROR);
     }
 }
