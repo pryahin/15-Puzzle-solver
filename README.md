@@ -148,7 +148,7 @@ npm install
 ### Запуск
 
 ```
-npm start
+npm start [--short]
 ```
 
 <a name="gentest"></a>
