@@ -11,3 +11,6 @@ export const START = 'start...';
 
 export const FILE_NOT_FOUND = 'Файл не найден';
 export const SEPARATOR = ',';
+
+export const OK = 'OK';
+export const ERROR = 'Error';
