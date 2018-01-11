@@ -25,7 +25,7 @@ export default class Table {
         this.f = this.g + this.h;
     }
 
-    moveZero({x: x = this.zero.x, y: y = this.zero.y}) {
+    moveZero({x = this.zero.x, y = this.zero.y}) {
         if (x < this.dimension && y < this.dimension && x > -1 && y > -1) {
             const copyMatrix = this.matrix.map(arr => arr.slice());
             ([copyMatrix[this.zero.y][this.zero.x], copyMatrix[y][x]] = [copyMatrix[y][x], copyMatrix[this.zero.y][this.zero.x]]);
